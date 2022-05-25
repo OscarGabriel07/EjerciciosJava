@@ -11,3 +11,9 @@
 ,src/main/java/com/sofka/ejercicio5/Main.java,1\e\1e1e6b4cc23151fc3ab07e8b0a47b5a7c770e36f
 \
 ,src/main/java/com/sofka/ejercicio1/Main.java,7\0\705c5474eaedfd95499575f2af3d4b5060bbe45c
+\
+,src/main/java/com/sofka/ejercicio6/Main.java,9\d\9de17a4b389e0d100d506a81e49a6bda26f58c97
+\
+,src/main/java/com/sofka/ejercicio7/Main.java,8\1\819a6950b374e504f1d3ad4ecfee305a02e86694
+\
+,src/main/java/com/sofka/ejercicio8/Main.java,4\6\46c55d1c880428bc441528168bbc31ea09b3a45d

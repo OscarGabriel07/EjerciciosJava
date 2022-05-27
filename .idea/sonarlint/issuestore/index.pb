@@ -25,3 +25,13 @@
 -src/main/java/com/sofka/ejercicio11/Main.java,4\3\43beaa5182296dca8c70d3c9b238876d2e35e976
 ]
 -src/main/java/com/sofka/ejercicio13/Main.java,7\9\79a0ee2a5dea044e959d62008dc7dfce19d320d2
+]
+-src/main/java/com/sofka/ejercicio14/Main.java,3\a\3a1c08e3d321ee81cff4f4162616c5e161fe2996
+]
+-src/main/java/com/sofka/ejercicio15/Main.java,6\a\6ac34c70b414c9bea751932c8e977dea7dc0ce02
+]
+-src/main/java/com/sofka/ejercicio12/Main.java,c\7\c73736e2ba141718205e28d517df234b302e92b3
+]
+-src/main/java/com/sofka/ejercicio16/Main.java,0\8\08b9acc20057f4e79489eebf9000ed15ca7b855a
+`
+0src/main/java/com/sofka/ejercicio16/Persona.java,f\8\f8cc5c33f999ed489dcff8a52fb635d8b46cb9b2

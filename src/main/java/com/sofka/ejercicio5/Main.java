@@ -1,39 +1,46 @@
 package com.sofka.ejercicio5;
 
-import java.util.logging.Logger;
+import org.jboss.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 5 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger(com.sofka.ejercicio5.Main.class.getName());
         logger.info("Se muestran los números impares del 1 al 100 usando ciclo while");
-        mostrarNumerosImparesUnoAlCien();
+        showOddNumbersFromOneToOneHundred();
         logger.info("**************************************************************************");
         logger.info("Se muestran los números pares del 1 al 100 usando ciclo while");
-        mostrarNumerosParesUnoAlCien();
-    }
-    public static void mostrarNumerosImparesUnoAlCien(){
-        Logger logger = Logger.getLogger(com.sofka.ejercicio5.Main.class.getName());
-        int contador = 1;
-        String temporal = "";
-        while(contador <= 100){
-            if (contador % 2 != 0){
-                temporal = String.valueOf(contador);
-                logger.info(temporal);
-            }
-            contador++;
-        }
+        showEvenNumbersFromOneToOneHundred();
     }
 
-    public static void mostrarNumerosParesUnoAlCien(){
-        Logger logger = Logger.getLogger(com.sofka.ejercicio5.Main.class.getName());
-        int contador = 1;
-        String temporal = "";
-        while(contador <= 100){
-            if (contador % 2 == 0){
-                temporal = String.valueOf(contador);
-                logger.info(temporal);
+    /**
+     * Muestra los números impares del 1 al 100 usando ciclo while
+     */
+    public static void showOddNumbersFromOneToOneHundred(){
+        int count = 1;
+        while(count <= 100){
+            if (count % 2 != 0){
+                logger.info(count);
             }
-            contador++;
+            count++;
+        }
+    }
+    /**
+     * Muestra los números pares del 1 al 100 usando ciclo while
+     */
+    public static void showEvenNumbersFromOneToOneHundred(){
+        int count = 1;
+        while(count <= 100){
+            if (count % 2 == 0){
+                logger.info(count);
+            }
+            count++;
         }
     }
 }

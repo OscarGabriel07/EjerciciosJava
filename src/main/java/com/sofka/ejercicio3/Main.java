@@ -1,22 +1,35 @@
 package com.sofka.ejercicio3;
 
+import org.jboss.logging.Logger;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 3 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger(com.sofka.ejercicio3.Main.class.getName());
-        Scanner leer = new Scanner(System.in);
-        double radio;
+
+        Scanner read = new Scanner(System.in);
+        double radius;
         logger.info("Por favor ingresa el radio del círculo en centímetros");
-        radio = Double.parseDouble(leer.nextLine());
-        calcularAreaCirculo(radio);
+        radius = Double.parseDouble(read.nextLine());
+        calculateCircleArea(radius);
     }
 
-    public static void calcularAreaCirculo(double radio){
-        Logger logger = Logger.getLogger(com.sofka.ejercicio3.Main.class.getName());
-        double areaCirculo = Math.PI * Math.pow(radio, 2);
-        String resultado = "El área del círculo es " + areaCirculo + " cm^2";
-        logger.info(resultado);
+    /**
+     * Calcula el área de un círculo
+     *
+     * @param radius recibe el radio del circulo
+     */
+    public static void calculateCircleArea(double radius){
+
+        double circleArea = Math.PI * Math.pow(radius, 2);
+        logger.info("El área del círculo es " + circleArea + " cm^2");
     }
 }

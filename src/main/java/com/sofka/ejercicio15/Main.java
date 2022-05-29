@@ -1,18 +1,28 @@
 package com.sofka.ejercicio15;
 
+import org.jboss.logging.Logger;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 15 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        mostrarMenuGestionCinematografica();
+        showTheFilmManagementMenu();
     }
 
-    public static void mostrarMenuGestionCinematografica(){
-        Logger logger = Logger.getLogger("logger");
-        Scanner leer = new Scanner(System.in);
-        int opcion = 0;
-        while (opcion != 8){
+    /**
+     * Muestra el menú de Gestión Cinematográfica
+     */
+    public static void showTheFilmManagementMenu(){
+        Scanner read = new Scanner(System.in);
+        int option = 0;
+        while (option != 8){
             logger.info("****** GESTIÓN CINEMATOGRÁFICA ********");
             logger.info("1-NUEVO ACTOR");
             logger.info("2-BUSCAR ACTOR");
@@ -25,12 +35,12 @@ public class Main {
             logger.info("Por favor seleccione una opción");
 
             try{
-                opcion = Integer.parseInt(leer.nextLine());
+                option = Integer.parseInt(read.nextLine());
             }catch (Exception e){
                 logger.info("Ingrese una opción válida del menú de opciones");
             }
 
-            switch (opcion){
+            switch (option){
                 case 1:
                     break;
                 case 2:

@@ -1,98 +1,172 @@
 package com.sofka.ejercicio18;
 
+/**
+ * Serie va a representar un contenido audiovisual
+ * En los ejemplos se usarán 5 series.
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Serie implements Entregable{
-    private String titulo;
-    private int cantidadTemporadas;
-    private boolean entregado;
-    private String genero;
-    private String creador;
-
+    private String title;
+    private int numberOfSeasons;
+    private boolean delivered;
+    private String gender;
+    private String creator;
+    /**
+     * Crea una serie con todos sus atributos inicializados por default
+     */
     public Serie(){
-        this.titulo = "";
-        this.cantidadTemporadas = 3;
-        this.entregado = false;
-        this.genero = "";
-        this.creador = "";
+        this.title = "";
+        this.numberOfSeasons = 3;
+        this.delivered = false;
+        this.gender = "";
+        this.creator = "";
     }
-
-    public Serie(String titulo, String creador){
-        this.titulo = titulo;
-        this.cantidadTemporadas = 3;
-        this.entregado = false;
-        this.genero = "";
-        this.creador = creador;
+    /**
+     * Crea una serie que recibe como parámetros el título y el creador de la serie
+     *
+     * @param title título de la serie
+     * @param creator creador de la serie
+     */
+    public Serie(String title, String creator){
+        this.title = title;
+        this.numberOfSeasons = 3;
+        this.delivered = false;
+        this.gender = "";
+        this.creator = creator;
     }
-
-    public Serie(String titulo, int cantidadTemporadas, String genero, String creador){
-        this.titulo = titulo;
-        this.cantidadTemporadas = cantidadTemporadas;
-        this.entregado = false;
-        this.genero = genero;
-        this.creador = creador;
+    /**
+     * Crea una serie que recibe como parámetros el título, la cantidad de temporadas, el género y el creator de la serie
+     *
+     * @param title título de la serie
+     * @param numberOfSeasons cantidad de temporadas de la serie
+     * @param gender género de la serie
+     * @param creator creador de la serie
+     */
+    public Serie(String title, int numberOfSeasons, String gender, String creator){
+        this.title = title;
+        this.numberOfSeasons = numberOfSeasons;
+        this.delivered = false;
+        this.gender = gender;
+        this.creator = creator;
     }
-
+    /**
+     * Retorna el título de la serie
+     *
+     * @return devuelve el título de esa serie
+     */
     public String getTitulo() {
-        return this.titulo;
+        return this.title;
     }
-
+    /**
+     * Retorna la cantidad de temporadas de la serie
+     *
+     * @return devuelve la cantidad de tempodas de la serie
+     */
     public int getCantidadTemporadas() {
-        return this.cantidadTemporadas;
+        return this.numberOfSeasons;
     }
-
-    public String getGenero() {
-        return this.genero;
+    /**
+     * Retorna el género de la serie
+     *
+     * @return devuelve el género de la serie
+     */
+    public String getGender() {
+        return this.gender;
     }
-
-    public String getCreador() {
-        return this.creador;
+    /**
+     * Retorna el creador de la serie
+     *
+     * @return devuelve el creator de la serie
+     */
+    public String getCreator() {
+        return this.creator;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    /**
+     * Modifica el título de la serie
+     *
+     * @param title recibe el nuevo valor a asignar al título de la serie
+     */
+    public void setTitle(String title) {
+        this.title = title;
     }
-
-    public void setCantidadTemporadas(int cantidadTemporadas) {
-        this.cantidadTemporadas = cantidadTemporadas;
+    /**
+     * Modifica la cantidad de temporadas de la serie
+     *
+     * @param numberOfSeasons recibe el nuevo valor a asignar a la cantidad de temporadas de la serie
+     */
+    public void setNumberOfSeasons(int numberOfSeasons) {
+        this.numberOfSeasons = numberOfSeasons;
     }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
+    /**
+     * Modifica el género de la serie
+     *
+     * @param gender recibe el nuevo valor a asignar al género de la serie
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
     }
-
-    public void setCreador(String creador) {
-        this.creador = creador;
+    /**
+     * Modifica el creador de la serie
+     *
+     * @param creator recibe el nuevo valor a asignar al creador de la serie
+     */
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
-
+    /**
+     * Sobreescribe el método toString
+     *
+     * @return devuelve los atributos de la serie
+     */
     @Override
     public String toString(){
-        return "Titulo: " + this.titulo + ", Cantidad de Temporadas: "+ this.cantidadTemporadas + ", Entregado: "
-                + this.entregado + ", Género: " + this.genero + ", Creador: " + this.creador;
+        return "Titulo: " + this.title + ", Cantidad de Temporadas: "+ this.numberOfSeasons + ", Entregado: "
+                + this.delivered + ", Género: " + this.gender + ", Creador: " + this.creator;
     }
-
+    /**
+     * La serie cambia su estado a entregado
+     */
     @Override
-    public void entregar() {
-        this.entregado = true;
+    public void deliver() {
+        this.delivered = true;
     }
-
+    /**
+     * La serie cambia su estado a NO entregado
+     */
     @Override
-    public void devolver() {
-        this.entregado = false;
+    public void sendBack() {
+        this.delivered = false;
     }
-
+    /**
+     * Retorna si la serie está entregada o no
+     *
+     * @return devuelve el estado de entrega de la serie
+     */
     @Override
-    public boolean estaEntregado() {
-        return this.entregado;
+    public boolean isDelivered() {
+        return this.delivered;
     }
-
+    /**
+     * Compara la cantidad de temporadas de dos series y devuelve 1 si la primera serie tiene más temporadas,
+     * 0 si tienen las mismas temporadas y -1 si la primera serie tiene menos temporadas
+     *
+     * @param object recibe la serie que se va a comparar
+     *
+     * @return Devuelve 1 si la primera serie tiene más temporadas, 0 si tienen las mismas temporadas
+     * y -1 si la primera serie tiene menos temporadas
+     */
     @Override
     public int compareTo(Object object) {
         Serie serie = (Serie) object;
-        int estado = -1;
-        if(this.cantidadTemporadas == serie.getCantidadTemporadas()){
-            estado = 0;
-        } else if (this.cantidadTemporadas > serie.getCantidadTemporadas()) {
-            estado = 1;
+        int status = -1;
+        if(this.numberOfSeasons == serie.getCantidadTemporadas()){
+            status = 0;
+        } else if (this.numberOfSeasons > serie.getCantidadTemporadas()) {
+            status = 1;
         }
-        return estado;
+        return status;
     }
 }

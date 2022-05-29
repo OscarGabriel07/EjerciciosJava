@@ -1,60 +1,79 @@
 package com.sofka.ejercicio16;
 
+import org.jboss.logging.Logger;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 16 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
-    static Logger logger = Logger.getLogger("logger");
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        mostrarInformacionPersona1();
-        mostrarInformacionPersona2();
-        mostrarInformacionPersona3();
+        showInformationPersonOne();
+        showInformationPersonTwo();
+        showInformationPersonThree();
     }
-
-    public static void mostrarInformacionPersona1(){
-        Scanner leer = new Scanner(System.in);
+    /**
+     * Captura la información de la primera persona y la muestra por consola
+     */
+    public static void showInformationPersonOne(){
+        Scanner read = new Scanner(System.in);
         logger.info("Por favor ingresa tu nombre");
-        String nombre = leer.nextLine();
+        String name = read.nextLine();
         logger.info("Por favor ingresa tu edad");
-        int edad = Integer.parseInt(leer.nextLine());
+        int age = Integer.parseInt(read.nextLine());
         logger.info("Por favor ingresa tu peso en kilogramos");
-        double peso = Double.parseDouble(leer.nextLine());
+        double weight = Double.parseDouble(read.nextLine());
         logger.info("Por favor ingresa tu altura en metros");
-        double altura = Double.parseDouble(leer.nextLine());
+        double height = Double.parseDouble(read.nextLine());
         logger.info("Por favor ingresa tu sexo");
-        char sexo = leer.next().charAt(0);
-        Persona persona = new Persona(nombre, edad, sexo, peso, altura);
-        imprimirObjetosPersona(persona);
+        char gender = read.next().charAt(0);
+        Persona person = new Persona(name, age, gender, weight, height);
+        printPersonObjects(person);
     }
-    public static void mostrarInformacionPersona2(){
-        Scanner leer = new Scanner(System.in);
+    /**
+     * Captura la información de la segunda persona y la muestra por consola
+     */
+    public static void showInformationPersonTwo(){
+        Scanner read = new Scanner(System.in);
         logger.info("Por favor ingresa tu nombre");
-        String nombre = leer.nextLine();
+        String name = read.nextLine();
         logger.info("Por favor ingresa tu edad");
-        int edad = Integer.parseInt(leer.nextLine());
+        int age = Integer.parseInt(read.nextLine());
         logger.info("Por favor ingresa tu sexo");
-        char sexo = leer.next().charAt(0);
-        Persona persona = new Persona(nombre, edad, sexo);
-        imprimirObjetosPersona(persona);
+        char gender = read.next().charAt(0);
+        Persona person = new Persona(name, age, gender);
+        printPersonObjects(person);
     }
-    public static void mostrarInformacionPersona3(){
-        Persona persona = new Persona();
-        persona.setNombre("Ana Pérez");
-        persona.setEdad(24);
-        persona.setSexo('M');
-        persona.setPeso(55);
-        persona.setAltura(1.61);
-        imprimirObjetosPersona(persona);
+    /**
+     * Captura la información de la tercera persona y la muestra por consola
+     */
+    public static void showInformationPersonThree(){
+        Persona person = new Persona();
+        person.setName("Ana Pérez");
+        person.setAge(24);
+        person.setGender('M');
+        person.setWeight(55);
+        person.setHeight(1.61);
+        printPersonObjects(person);
     }
-
-    public static void imprimirObjetosPersona(Persona persona){
+    /**
+     * Muestra por consola mensaje acerca del peso de la persona, información de si es mayor de edad o no y
+     * por último la información personal de la persona
+     *
+     * @param person persona a la que se le mostrará por consola la información personal
+     */
+    public static void printPersonObjects(Persona person){
         logger.info("----------------------------------------------");
-        String mensajeAcercaDePeso = persona.mostrarMensajeAcercaDePeso();
-        logger.info(mensajeAcercaDePeso);
-        String esMayorDeEdad = persona.esMayorDeEdad() ? "Eres mayor de edad." : "No eres mayor de edad.";
-        logger.info(esMayorDeEdad);
-        String informacionPersona = persona.toString();
-        logger.info(informacionPersona);
+        person.showMessageAboutWeight();
+        String isOfLegalAge = person.isOfLegalAge() ? "Eres mayor de edad." : "No eres mayor de edad.";
+        logger.info(isOfLegalAge);
+        String personalInformation = person.toString();
+        logger.info(personalInformation);
         logger.info("----------------------------------------------");
     }
 }

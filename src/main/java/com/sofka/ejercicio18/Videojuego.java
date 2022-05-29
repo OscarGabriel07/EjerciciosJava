@@ -1,98 +1,171 @@
 package com.sofka.ejercicio18;
 
+/**
+ * Videojuego va a representar un contenido de juego de video
+ * En los ejemplos se usarán 5 videojuegos.
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Videojuego implements Entregable{
-    private String titulo;
-    private double horasEstimadas;
-    private boolean entregado;
-    private String genero;
-    private String campania;
-
+    private String title;
+    private double estimatedHours;
+    private boolean delivered;
+    private String gender;
+    private String campaign;
+    /**
+     * Crea un videojuego con todos sus atributos inicializados por default
+     */
     public Videojuego(){
-        this.titulo = "";
-        this.horasEstimadas = 10;
-        this.entregado = false;
-        this.genero = "";
-        this.campania = "";
+        this.title = "";
+        this.estimatedHours = 10;
+        this.delivered = false;
+        this.gender = "";
+        this.campaign = "";
     }
-
-    public Videojuego(String titulo, double horasEstimadas){
-        this.titulo = titulo;
-        this.horasEstimadas = horasEstimadas;
-        this.entregado = false;
-        this.genero = "";
-        this.campania = "";
+    /**
+     * Crea un videojuego que recibe como parámetros el título y las horas estimadas de juego
+     *
+     * @param title título del videojuego
+     * @param estimatedHours horas estimadas para el juego
+     */
+    public Videojuego(String title, double estimatedHours){
+        this.title = title;
+        this.estimatedHours = estimatedHours;
+        this.delivered = false;
+        this.gender = "";
+        this.campaign = "";
     }
-
-    public Videojuego(String titulo, double horasEstimadas, String genero, String campania){
-        this.titulo = titulo;
-        this.horasEstimadas = horasEstimadas;
-        this.entregado = false;
-        this.genero = genero;
-        this.campania = campania;
+    /**
+     * Crea un videojuego que recibe como parámetros el título, las horas estimadas de juego, el género y
+     * la campaña
+     *
+     * @param title título del videojuego
+     * @param estimatedHours horas estimadas para el videojuego
+     * @param gender género en que se encuentra catalogado el videojuego
+     * @param campaign campaña de lanzamiento del videojuego
+     */
+    public Videojuego(String title, double estimatedHours, String gender, String campaign){
+        this.title = title;
+        this.estimatedHours = estimatedHours;
+        this.delivered = false;
+        this.gender = gender;
+        this.campaign = campaign;
     }
-
-    public String getTitulo() {
-        return this.titulo;
+    /**
+     * Retorna el título del videojuego
+     *
+     * @return devuelve el título del videojuego
+     */
+    public String getTitle() {
+        return this.title;
     }
-
-    public double getHorasEstimadas() {
-        return this.horasEstimadas;
+    /**
+     * Retorna las horas estimadas que dura el videojuego
+     *
+     * @return devuelve las horas estimadas que dura el videojuego
+     */
+    public double getEstimatedHours() {
+        return this.estimatedHours;
     }
-
-    public String getGenero() {
-        return this.genero;
+    /**
+     * Retorna el género del videojuego
+     *
+     * @return devuelve el género catalogado para el videojuego
+     */
+    public String getGender() {
+        return this.gender;
     }
-
-    public String getCampania() {
-        return this.campania;
+    /**
+     * Retorna la campaña del videojuego
+     *
+     * @return devuelve la campaña del videojuego
+     */
+    public String getCampaign() {
+        return this.campaign;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    /**
+     * Modifica el título del videojuego
+     *
+     * @param title recibe el nuevo valor a asignar al título del videojuego
+     */
+    public void setTitle(String title) {
+        this.title = title;
     }
-
-    public void setHorasEstimadas(double horasEstimadas) {
-        this.horasEstimadas = horasEstimadas;
+    /**
+     * Modifica las horas estimadas del videojuego
+     *
+     * @param estimatedHours recibe el nuevo valor a asignar a las horas estimadas del videojuego
+     */
+    public void setEstimatedHours(double estimatedHours) {
+        this.estimatedHours = estimatedHours;
     }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
+    /**
+     * Modifica el género del videojuego
+     *
+     * @param gender recibe el nuevo valor a asignar al género del videojuego
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
     }
-
-    public void setCampania(String campania) {
-        this.campania = campania;
+    /**
+     * Modifica la campaña del videojuego
+     *
+     * @param campaign recibe el nuevo valor a asignar a la campaña del videojuego
+     */
+    public void setCampaign(String campaign) {
+        this.campaign = campaign;
     }
-
+    /**
+     * retorna todos los atributos del videojuego
+     *
+     * @return devuelve los atributos del videojuego
+     */
     @Override
     public String toString(){
-        return "Titulo: " + this.titulo + ", Horas Estimadas: "+ this.horasEstimadas + ", Entregado: "
-                + this.entregado + ", Género: " + this.genero + ", Campania: " + this.campania;
+        return "Titulo: " + this.title + ", Horas Estimadas: "+ this.estimatedHours + ", Entregado: "
+                + this.delivered + ", Género: " + this.gender + ", Campania: " + this.campaign;
     }
-
+    /**
+     * El videojuego cambia su estado a entregado
+     */
     @Override
-    public void entregar() {
-        this.entregado = true;
+    public void deliver() {
+        this.delivered = true;
     }
-
+    /**
+     * El videojuego cambia su estado a NO entregado
+     */
     @Override
-    public void devolver() {
-        this.entregado = false;
+    public void sendBack() {
+        this.delivered = false;
     }
-
+    /**
+     * Retorna si el videojuego está entregado o no
+     *
+     * @return devuelve el estado de entrega del videojuego
+     */
     @Override
-    public boolean estaEntregado() {
-        return this.entregado;
+    public boolean isDelivered() {
+        return this.delivered;
     }
-
+    /**
+     * Compara las horas estimadas de dos videojuegos y devuelve 1 si la primera serie tiene más horas estimadas,
+     * 0 si tienen las mismas horas estimadas y -1 si la primera serie tiene menos horas estimadas
+     *
+     * @param object recibe el videojuego que se va a comparar
+     * @return
+     */
     @Override
     public int compareTo(Object object) {
         Videojuego videojuego = (Videojuego) object;
-        int estado = -1;
-        if(this.horasEstimadas == videojuego.getHorasEstimadas()){
-            estado = 0;
-        } else if (this.horasEstimadas > videojuego.getHorasEstimadas()) {
-            estado = 1;
+        int status = -1;
+        if(this.estimatedHours == videojuego.getEstimatedHours()){
+            status = 0;
+        } else if (this.estimatedHours > videojuego.getEstimatedHours()) {
+            status = 1;
         }
-        return estado;
+        return status;
     }
 }

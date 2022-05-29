@@ -1,78 +1,77 @@
 package com.sofka.ejercicio18;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.logging.Logger;
+import org.jboss.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 18 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger("logger");
 
-        Serie serie1 = new Serie("Entrevías", 1, "Drama", "Carlos Gómez");
-        Serie serie2 = new Serie("Strangers Things", "Carolina Jiménez");
-        Serie serie3 = new Serie();
-        Serie serie4 = new Serie("¿Quién mató a Sara?", 4, "Inquietante", "Camila Sánchez");
-        Serie serie5 = new Serie("Maverix", "Leonel Torres");
-        Serie [] series = {serie1, serie2, serie3, serie4, serie5};
+        Serie serieOne = new Serie("Entrevías", 1, "Drama", "Carlos Gómez");
+        Serie serieTwo = new Serie("Strangers Things", "Carolina Jiménez");
+        Serie serieThree = new Serie();
+        Serie serieFour = new Serie("¿Quién mató a Sara?", 4, "Inquietante", "Camila Sánchez");
+        Serie serieFive = new Serie("Maverix", "Leonel Torres");
+        Serie [] series = {serieOne, serieTwo, serieThree, serieFour, serieFive};
 
-        Videojuego videojuego1 = new Videojuego("Battlefield 4", 8.6, "Deportes", "Campaña1");
-        Videojuego videojuego2 = new Videojuego("Destiny", 10);
-        Videojuego videojuego3 = new Videojuego();
-        Videojuego videojuego4 = new Videojuego("FIFA 22", 15, "Guerra", "Campaña5");
-        Videojuego videojuego5 = new Videojuego("Need For Speed", 13);
-        Videojuego[] videojuegos = {videojuego1, videojuego2, videojuego3, videojuego4, videojuego5};
+        Videojuego videoGameOne = new Videojuego("Battlefield 4", 8.6, "Deportes", "Campaña1");
+        Videojuego videoGameTwo = new Videojuego("Destiny", 10);
+        Videojuego videoGameThree = new Videojuego();
+        Videojuego videoGameFour = new Videojuego("FIFA 22", 15, "Guerra", "Campaña5");
+        Videojuego videoGameFive = new Videojuego("Need For Speed", 13);
+        Videojuego[] videoGames = {videoGameOne, videoGameTwo, videoGameThree, videoGameFour, videoGameFive};
 
-        series[0].entregar();
-        series[3].entregar();
-        series[4].entregar();
-        videojuegos[0].entregar();
-        videojuegos[1].entregar();
-        videojuegos[2].entregar();
-        videojuegos[4].entregar();
+        series[0].deliver();
+        series[3].deliver();
+        series[4].deliver();
+        videoGames[0].deliver();
+        videoGames[1].deliver();
+        videoGames[2].deliver();
+        videoGames[4].deliver();
 
-        int seriesEntregadas = 0;
-        int videojuegosEntregados = 0;
+        int deliveredSeries = 0;
+        int videoGamesDelivered = 0;
 
-        for(Serie elemento: series){
-            if(elemento.estaEntregado()){
-                seriesEntregadas++;
+        for(Serie element: series){
+            if(element.isDelivered()){
+                deliveredSeries++;
             }
         }
 
-        for(Videojuego elemento: videojuegos){
-            if(elemento.estaEntregado()){
-                videojuegosEntregados++;
+        for(Videojuego element: videoGames){
+            if(element.isDelivered()){
+                videoGamesDelivered++;
             }
         }
-
-        String seriesYVideojuegosEntregados = "Series entregadas : " + seriesEntregadas
-                + "\nVideojegos entregados: " + videojuegosEntregados;
-        logger.info(seriesYVideojuegosEntregados);
+        logger.info("Series entregadas : " + deliveredSeries
+                + "\nVideojegos entregados: " + videoGamesDelivered);
 
         logger.info("----------------------------------------------------------");
 
-        Serie serieMasTemporadas = new Serie();
-        serieMasTemporadas.setCantidadTemporadas(0);
+        Serie seriesWithMoreSeasons = new Serie();
+        seriesWithMoreSeasons.setNumberOfSeasons(0);
         for(int i = 0; i < series.length; i++){
-            if(series[i].compareTo(serieMasTemporadas) == 1){
-                serieMasTemporadas = series[i];
+            if(series[i].compareTo(seriesWithMoreSeasons) == 1){
+                seriesWithMoreSeasons = series[i];
             }
         }
-        String impresionSerieMasTemporadas = "La serie con más temporadas es: \n" + serieMasTemporadas.toString();
-        logger.info(impresionSerieMasTemporadas);
+        logger.info("La serie con más temporadas es: \n" + seriesWithMoreSeasons.toString());
 
         logger.info("----------------------------------------------------------");
 
-        Videojuego videojuegoMasHoras = new Videojuego();
-        videojuegoMasHoras.setHorasEstimadas(0);
-        for(int i = 0; i < videojuegos.length; i++){
-            if(videojuegos[i].compareTo(videojuegoMasHoras) == 1){
-                videojuegoMasHoras = videojuegos[i];
+        Videojuego videoGamesWithMoreHours = new Videojuego();
+        videoGamesWithMoreHours.setEstimatedHours(0);
+        for(int i = 0; i < videoGames.length; i++){
+            if(videoGames[i].compareTo(videoGamesWithMoreHours) == 1){
+                videoGamesWithMoreHours = videoGames[i];
             }
         }
-        String impresionVideojuegosMasHoras = "El videojuego con más horas estimadas es: \n" + videojuegoMasHoras.toString();
-        logger.info(impresionVideojuegosMasHoras);
-
+        logger.info("El videojuego con más horas estimadas es: \n" + videoGamesWithMoreHours.toString());
     }
 }

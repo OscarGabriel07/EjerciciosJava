@@ -1,23 +1,33 @@
 package com.sofka.ejercicio14;
 
+import org.jboss.logging.Logger;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 14 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger("logger");
-        Scanner leer = new Scanner(System.in);
+        Scanner read = new Scanner(System.in);
         logger.info("Por favor ingresa un número");
-        int numeroInicial = Integer.parseInt(leer.nextLine());
-        imprimirDeDosEnDosHastaElMil(numeroInicial);
+        int initialNumber = Integer.parseInt(read.nextLine());
+        showNumbersTwoByTwoUpToAThousand(initialNumber);
     }
 
-    public static void imprimirDeDosEnDosHastaElMil(int numeroInicial){
-        Logger logger = Logger.getLogger("logger");
-        while (numeroInicial <= 1000){
-            String numeroEnCadena = String.valueOf(numeroInicial);
-            logger.severe(numeroEnCadena);
-            numeroInicial += 2;
+    /**
+     * Muestra los números de dos en dos hasta el mil partiendo de un número pasado como parámetro
+     *
+     * @param initialNumber recibe el número desde donde se empiezan a imprimir los números
+     */
+    public static void showNumbersTwoByTwoUpToAThousand(int initialNumber){
+        while (initialNumber <= 1000){
+            logger.info(initialNumber);
+            initialNumber += 2;
         }
     }
 }

@@ -1,49 +1,58 @@
 package com.sofka.ejercicio12;
 
-import java.util.Scanner;
-import java.util.logging.Logger;
+import org.jboss.logging.Logger;
 
+import java.util.Scanner;
+
+/**
+ * Clase de prueba para el ejercicio 12 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger("logger");
-        Scanner leer = new Scanner(System.in);
+        Scanner read = new Scanner(System.in);
         logger.info("Por favor ingresa una palabra");
-        String palabra1 = leer.nextLine();
+        String wordOne = read.nextLine();
         logger.info("Por favor ingresa otra palabra");
-        String palabra2 = leer.nextLine();
-        String diferenciasPalabra1ConRespectoPalabra2 = hallarDiferenciaPalabras(palabra1, palabra2);
-        String diferenciasPalabra2ConRespectoPalabra1 = hallarDiferenciaPalabras(palabra2, palabra1);
-        logger.info(diferenciasPalabra1ConRespectoPalabra2);
-        logger.info(diferenciasPalabra2ConRespectoPalabra1);
+        String wordTwo = read.nextLine();
+        showWordDifference(wordOne, wordTwo);
+        showWordDifference(wordTwo, wordOne);
     }
 
-    public static String hallarDiferenciaPalabras(String comparador, String comparado){
+    /**
+     * Muestra la diferencia entre dos palabras
+     *
+     * @param comparator recibe la palabra que va a comparar
+     * @param compared recibe la palabra que va a ser comparada
+     */
+    public static void showWordDifference(String comparator, String compared){
         StringBuilder bld = new StringBuilder();
-        String diferencias = "";
-        String resultado = "";
-        int contadorCaracteresIguales;
-        for (int i = 0; i < comparador.length(); i++){
-            contadorCaracteresIguales = 0;
-            for (int j = 0; j < comparado.length(); j++){
-                if(comparador.charAt(i) == comparado.charAt(j)){
-                    contadorCaracteresIguales++;
+        String differences = "";
+        int equalCharacterCounter;
+        for (int i = 0; i < comparator.length(); i++){
+            equalCharacterCounter = 0;
+            for (int j = 0; j < compared.length(); j++){
+                if(comparator.charAt(i) == compared.charAt(j)){
+                    equalCharacterCounter++;
                 }
             }
-            if(contadorCaracteresIguales == 0){
-                bld.append(comparador.charAt(i));
+            if(equalCharacterCounter == 0){
+                bld.append(comparator.charAt(i));
             }
-            diferencias = bld.toString();
+            differences = bld.toString();
         }
-        if(comparador.equals(comparado)){
-            resultado = "Las palabras son iguales";
-        }else if(diferencias.equals("")){
-            resultado = "La palabra " + comparador + " contiene todas las letras de la palabra "
-                    + comparado + " aunque pueden estar en desorden, así que no hay diferencias";
+        if(comparator.equals(compared)){
+            logger.info("Las palabras son iguales");
+        }else if(differences.equals("")){
+            logger.info("La palabra " + comparator + " contiene todas las letras de la palabra "
+                    + compared + " aunque pueden estar en desorden, así que no hay diferencias");
         }else {
-            resultado = "La diferencia de la palabra " + comparador + " con respecto a la palabra " + comparado
-                    + " es: " + diferencias;
+            logger.info("La diferencia de la palabra " + comparator + " con respecto a la palabra " + compared
+                    + " es: " + differences);
         }
-        return resultado;
     }
-
 }

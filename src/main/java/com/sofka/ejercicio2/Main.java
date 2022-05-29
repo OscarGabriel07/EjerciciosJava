@@ -1,30 +1,42 @@
 package com.sofka.ejercicio2;
 
+import org.jboss.logging.Logger;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
+/**
+ * Clase de prueba para el ejercicio 2 del taller de Java
+ *
+ * @author Óscar Farfán - oscarfarfan92@gmail.com
+ *
+ * @version 1.0.0.000 28-05-2022
+ */
 public class Main {
+    public static final Logger logger = Logger.getLogger("logger");
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger(com.sofka.ejercicio2.Main.class.getName());
-        Scanner leer = new Scanner(System.in);
-        int numero1;
-        int numero2;
+
+        Scanner read = new Scanner(System.in);
+        int numberOne;
+        int numberTwo;
         logger.info("Por favor ingresa un número");
-        numero1 = Integer.parseInt(leer.nextLine());
+        numberOne = Integer.parseInt(read.nextLine());
         logger.info("Por favor ingresa otro número");
-        numero2 = Integer.parseInt(leer.nextLine());
-        calcularNumeroMayor(numero1, numero2);
+        numberTwo = Integer.parseInt(read.nextLine());
+        calculateLargestNumber(numberOne, numberTwo);
     }
-    public static void calcularNumeroMayor(int numero1, int numero2){
-        Logger logger = Logger.getLogger(com.sofka.ejercicio2.Main.class.getName());
-        String resultado = "";
-        if(numero1 > numero2){
-            resultado = "El número " + numero1 + " es mayor al " + numero2;
-        } else if (numero1 < numero2) {
-            resultado = "El número " + numero2 + " es mayor al " + numero1;
+    /**
+     * Compara dos números e indica cuál es el mayor
+     *
+     * @param numberOne recibe el primer número a comparar
+     * @param numberTwo recibe el segundo número a comparar
+     */
+    public static void calculateLargestNumber(int numberOne, int numberTwo){
+
+        if(numberOne > numberTwo){
+            logger.info("El número " + numberOne + " es mayor al " + numberTwo);
+        } else if (numberOne < numberTwo) {
+            logger.info("El número " + numberTwo + " es mayor al " + numberOne);
         }else {
-            resultado = "Los números son iguales";
+            logger.info("Los números son iguales");
         }
-        logger.info(resultado);
     }
 }
